@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" EnableViewState="false" AutoEventWireup="true" CodeBehind="mas.master.cs" Inherits="IBBA.Pages.mas" ClientIDMode="Static" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="../css/nav.css" rel="stylesheet" type="text/css" />
+    <title></title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <a href="Home.aspx">
+                    <img src="../Images/favicon.png" width="50" height="50"></a>
+                <a style="text-decoration: none" href="Home.aspx">
+                    <h1 style="color: white;">נערים א' מחוזית מרכז </h1>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <% if (Session["isAdmin"] != null && (bool)Session["isAdmin"] == true)
+                    { %>
+                <div class="nav-item <%= Request.Url.AbsolutePath.EndsWith("Admin.aspx") ? "active" : "" %>">
+                    <a href="Admin.aspx">ADMIN</a>
+                </div>
+
+                <% }%>
+                <% if (Session["isPlayer"] != null && (bool)Session["isPlayer"] == true)
+                    { %>
+                <div class="nav-item <%= Request.Url.AbsolutePath.EndsWith("Player.aspx") ? "active" : "" %>">
+                    <a href="Player.aspx">שחקן</a>
+                </div>
+
+                <% }%>
+                <% if (Session["isLogin"] != null && (bool)Session["isLogin"] == true)
+                    { %>
+                <div class="nav-item <%= Request.Url.AbsolutePath.EndsWith("Account.aspx") ? "active" : "" %>">
+                    <a href="Account.aspx"><%Response.Write(Session["Name"].ToString());%></a>
+                </div>
+
+                <% }
+                    else
+                    { %>
+                <div class="nav-item <%= Request.Url.AbsolutePath.EndsWith("login.aspx") ? "active" : "" %>">
+                    <a href="Login.aspx">התחברות</a>
+                </div>
+
+                <% } %>
+                <div class="nav-item <%= Request.Url.AbsolutePath.EndsWith("Standings.aspx") ? "active" : "" %>">
+                    <a href="Standings.aspx">טבלה</a>
+                </div>
+                <div class="nav-item <%= Request.Url.AbsolutePath.EndsWith("schedule.aspx") ? "active" : "" %>">
+                    <a href="schedule.aspx">משחקים</a>
+                </div>
+                <div class="nav-item <%= Request.Url.AbsolutePath.EndsWith("teams.aspx") ? "active" : "" %>">
+                    <a href="teams.aspx">קבוצות</a>
+                </div>
+                <div class="nav-item <%= Request.Url.AbsolutePath.EndsWith("players.aspx") ? "active" : "" %>">
+                    <a href="players.aspx">שחקנים</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+</html>
