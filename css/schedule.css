@@ -1,0 +1,135 @@
+﻿:root {
+    --primary: #ff6b00;
+    --secondary: #1a237e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+.page-title {
+    text-align: center;
+    color: var(--secondary);
+    margin: 2rem 0;
+    font-size: 2.5rem;
+}
+
+.schedule-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    
+}
+
+.month-section {
+    margin-bottom: 2rem;
+}
+
+.month-title {
+    color: var(--secondary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary);
+}
+
+.game-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+    .game-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+.game-date {
+    text-align: center;
+}
+
+.game-day {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.game-time {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.game-teams {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.team-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.versus {
+    color: #666;
+    font-weight: bold;
+}
+
+.game-venue {
+    color: #666;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.filter-section {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.filter-select {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--secondary);
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.basketball-icon {
+    animation: bounce 2s infinite ease-in-out;
+}
